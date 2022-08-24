@@ -1,37 +1,46 @@
-import React from 'react';
+import { format } from 'date-fns';
 
 const InfoCard = ({ user }) => {
   return (
     <div className="card p-3">
       <img
-        className="rounded-circle"
+        className="rounded-circle mb-3"
         src={user.picture.large}
         alt="avatar"
         width={128}
         height={128}
       />
-      <div className="card-body p-0 mt-3">
-        <h6 className="card-title">
-          <b>Name: </b>
-          {user.name.first} {user.name.last}
-        </h6>
-        <span className="d-block mb-2">
-          <b>Date of birth: </b>
-          {user.dob.date.substr(0, user.dob.date.indexOf('T'))}
-        </span>
-        <span className="d-block mb-2">
-          <b>Address: </b> {user.location.city}, {user.location.street.name}
-          {user.location.street.number}
-        </span>
-        <span className="d-block mb-2">
-          <b>Phone: </b>
-          {user.phone}
-        </span>
-        <span className="d-block">
-          <b>Registration: </b>
-          {user.registered.date.substr(0, user.dob.date.indexOf('T'))}
-        </span>
-      </div>
+      <dl className="card-body p-0">
+        <div className="d-flex mb-2">
+          <dt className="mr-1">Name:</dt>
+          <dd>
+            {user.name.first} {user.name.last}
+          </dd>
+        </div>
+        <div className="d-flex mb-2">
+          <dt className="mr-1">Date of birth:</dt>
+          <dd>{format(new Date(user.dob.date), 'yyyy-mm-dd')}</dd>
+        </div>
+        <div className="d-flex mb-2">
+          <dt className="mr-1">Gender:</dt>
+          <dd>{user.gender}</dd>
+        </div>
+        <div className="d-flex mb-2">
+          <dt className="mr-1">Address:</dt>
+          <dd>
+            {user.location.street.number} {user.location.city},{' '}
+            {user.location.street.name}
+          </dd>
+        </div>
+        <div className="d-flex mb-2">
+          <dt className="mr-1">Phone:</dt>
+          <dd>{user.phone}</dd>
+        </div>
+        <div className="d-flex">
+          <dt className="mr-1">Registration:</dt>
+          <dd>{user.registered.date.substr(0, user.dob.date.indexOf('T'))}</dd>
+        </div>
+      </dl>
     </div>
   );
 };

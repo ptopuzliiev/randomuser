@@ -1,23 +1,27 @@
-import React, { useEffect } from 'react';
+import { useMemo } from 'react';
+import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import InfoCard from '../components/InfoCard';
 
 const User = () => {
-  const navigate = useNavigate();
   const { id } = useParams();
-  const users = useSelector((state) => state.rootReducer.randomUsers.users);
-  const [currentUser] = users.filter((user) => user.login.uuid === id);
+  const users = useSelector((state) => state.randomUsers.users);
+  // const currentUser = users.find((user) => user.login.uuid === id);
 
-  useEffect(() => {
-    if (!currentUser) navigate('/users');
-  });
+  const currentUser = useMemo(() => {
+    return users.find((user) => user.login.uuid === id);
+  }, [id]);
+
+  if (!currentUser) {
+    return <Navigate to="/users" />;
+  }
 
   return (
     <main>
-      <div className="container">
-        {currentUser && <InfoCard user={currentUser} />}
-      </div>
+      <Container>
+        <InfoCard user={currentUser} />
+      </Container>
     </main>
   );
 };

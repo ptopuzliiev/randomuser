@@ -1,5 +1,5 @@
-import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import AppRouter from './components/AppRouter';
 import GlobalStyles from './components/styles/Global.styled';
 import { store } from './redux';

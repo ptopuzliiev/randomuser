@@ -4,15 +4,12 @@ import Users from '../pages/Users';
 import UserInfo from '../pages/UserInfo';
 import User from '../pages/User';
 
-export const publicRoutes = [
-  { path: '/login', component: Login, exact: true },
-  { path: '/*', component: Login, exact: true },
-];
+export const publicRoutes = [{ path: '/login', component: Login }];
 
 export const privateRoutes = [
-  { path: '/users', component: Users, exact: true },
-  { path: '/users/:id', component: User, exact: true },
-  { path: '/user-info', component: UserInfo, exact: true },
-  { path: '/logout', component: Logout, exact: true },
-  { path: '/*', component: Users, exact: true },
+  { path: '/users', component: Users },
+  { path: '/users/:id', component: User },
+  { path: '/user-info', component: UserInfo },
+  { path: '/logout', component: Logout },
+  { path: '/*', component: Login },
 ];

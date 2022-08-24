@@ -29,6 +29,20 @@ ul, li {
   padding: 0;
   list-style-type: none;
 }
+
+dl,
+dt,
+dd {
+  margin: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.mr-1{
+  margin-right: 5px;
+}
 `;
 
 export default GlobalStyles;

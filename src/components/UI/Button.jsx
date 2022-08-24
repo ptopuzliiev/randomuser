@@ -1,12 +1,11 @@
-import React from 'react';
-import { StyledButton } from '../styles/Button.styled';
+import Button from 'react-bootstrap/Button';
 
-export const Button = ({ children, ...props }) => {
+export const ButtonMain = ({ children, ...props }) => {
   return (
-    <StyledButton {...props} className="btn btn-info btn-lg text-white">
+    <Button {...props} variant="info" size="lg">
       {children}
-    </StyledButton>
+    </Button>
   );
 };
 
-export default Button;
+export default ButtonMain;

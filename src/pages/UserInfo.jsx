@@ -1,12 +1,12 @@
-import React from 'react';
+import Container from 'react-bootstrap/Container';
 
 const UserInfo = () => {
   return (
-    <div className="container">
+    <Container>
       <h1 className="text-center">
         Выберите пользователя чтобы увидеть его инфо
       </h1>
-    </div>
+    </Container>
   );
 };
 

@@ -1,8 +1,7 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { authAction } from '../redux/authReducer';
-import Button from '../components/UI/Button';
+import ButtonMain from '../components/UI/Button';
 import { StyledButtonHolder } from '../components/styles/ButtonHolder.styled';
 
 const Logout = () => {
@@ -14,7 +13,7 @@ const Logout = () => {
   };
   return (
     <StyledButtonHolder>
-      <Button onClick={logOut}>Log out</Button>
+      <ButtonMain onClick={logOut}>Log out</ButtonMain>
     </StyledButtonHolder>
   );
 };
